@@ -1,6 +1,18 @@
 import React from "react";
-import "./App.css";
+import styled from "styled-components";
+
+const StyledApp = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width: 95%;
+  margin: 10px 0;
+
+  border: 1px solid red;
+`;
 
 export function App() {
-  return <div className="App">Hello</div>;
+  return <StyledApp>Hello</StyledApp>;
 }
