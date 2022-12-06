@@ -1,0 +1,54 @@
+.header {
+  width: 100%;
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  &__logoContainer {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  &__logo {
+    width: 2rem;
+    height: 2rem;
+    background: url(../../images/logo_main.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  &__title {
+    margin: 0;
+    text-transform: uppercase;
+    font-weight: 800;
+    color: #4793ff;
+  }
+
+  &__locationButton {
+    color: rgb(251, 251, 251);
+    font-size: 1.2rem;
+    font-weight: 600;
+
+    min-width: 180px;
+    min-height: 48px;
+    border: none;
+    border-radius: 16px;
+    padding: 0;
+    background: rgb(71, 147, 255);
+    background: linear-gradient(
+      130deg,
+      rgba(71, 147, 255, 1) 0%,
+      rgba(51, 165, 189, 1) 100%
+    );
+    box-shadow: 2px 5px 25px -3px rgba(180, 180, 180, 1);
+    box-sizing: border-box;
+    padding: 0 8px;
+
+    &:active {
+      transform: scale(1.03);
+    }
+  }
+}

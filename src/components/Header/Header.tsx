@@ -11,11 +11,7 @@ export function Header(props: IHeaderProps) {
         <div className={styles.header__logo}></div>
         <h1 className={styles.header__title}>meteo</h1>
       </div>
-      <div className={styles.header__locationContainer}>
-        <button className={styles.header__locationButton}>
-          select location
-        </button>
-      </div>
+      <button className={styles.header__locationButton}>Select location</button>
     </div>
   );
 }
