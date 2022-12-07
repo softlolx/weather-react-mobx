@@ -4,7 +4,12 @@
   flex-direction: column;
   justify-content: space-between;
   box-sizing: border-box;
-  padding: 10px;
+  padding: 12px 8px;
+  gap: 24px;
+
+  background: #ffffff;
+  box-shadow: 2px 5px 25px -3px rgba(180, 180, 180, 0.25);
+  border-radius: 20px;
 
   &__tempContainer {
     width: 100%;
@@ -14,9 +19,16 @@
   }
 
   &__temp {
+    margin: 0;
+    padding: 0;
     font-size: 5rem;
     font-weight: 600;
+    line-height: 1;
     color: #4793ff;
+
+    position: relative;
+    top: -10px;
+    left: -6px;
   }
 
   &__weatherImage {
