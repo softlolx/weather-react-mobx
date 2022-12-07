@@ -6,6 +6,7 @@ import { Details } from './components/Details/Details';
 import { Forecast } from './components/Forecast/Forecast';
 import { ForecastItem } from './components/ForecastItem/ForecastItem';
 import { Footer } from './components/Footer/Footer';
+import { LocationSelect } from './components/LocationSelect/LocationSelect';
 
 export function App() {
   return (
@@ -23,6 +24,7 @@ export function App() {
         <ForecastItem />
       </Forecast>
       <Footer />
+      <LocationSelect />
     </div>
   );
 }

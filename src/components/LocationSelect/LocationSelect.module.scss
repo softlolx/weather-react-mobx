@@ -1,0 +1,62 @@
+.location {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  &__popup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 48px;
+    width: 280px;
+    height: 280px;
+    background-color: red;
+    border-radius: 20px;
+
+    background: aliceblue;
+    box-shadow: 2px 5px 25px -3px rgba(180, 180, 180, 0.25);
+
+    position: relative;
+  }
+
+  &__popupTitle {
+    font-size: 2rem;
+    color: #4793ff;
+    font-weight: 600;
+  }
+  &__popupInput {
+    width: 80%;
+    border-radius: 10px;
+    border: none;
+    height: 32px;
+    font-size: 1.5rem;
+    box-sizing: border-box;
+    padding: 0 8px;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__closeButton {
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    top: -24px;
+    right: -24px;
+    background-color: transparent;
+    border: none;
+    background-image: url(../../images/sunny.svg);
+    background-position: center;
+    background-size: contain;
+  }
+}
