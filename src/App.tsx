@@ -13,10 +13,9 @@ import { current } from './store/current';
 
 export const App = observer(() => {
   const [isLocationPopupopened, setIsLocationPopupopened] = useState(false);
-  const [location, setLocation] = useState('Minsk');
 
   useEffect(() => {
-    getCurrentWeather(location);
+    getCurrentWeather(current.currentLocation);
   }, []);
 
   async function getCurrentWeather(location: string) {
@@ -32,7 +31,7 @@ export const App = observer(() => {
       <Header onSelectButtonClick={toggleLocationPopup} />
       <Main
         currentTemp={current.currentTemp}
-        currentLocation={location}
+        currentLocation={current.currentLocation}
         currentTime={current.currentTime}
       />
       <Details />

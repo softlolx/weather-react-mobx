@@ -6,19 +6,21 @@ interface ICurrentWeatherData {
     temp_c: string;
   };
   location: {
-    localtime_epoch: number;
+    localtime: string;
   };
 }
 
-function getCurrentTime(timestamp: number) {
-  const date = new Date(timestamp * 1000);
-  let hours = date.getHours();
-  let minutes = date.getMinutes();
+function getCurrentTime(localtime: string) {
+  // const date = new Date(timestamp * 1000);
+  // let hours = date.getHours();
+  // let minutes = date.getMinutes();
+  // console.log(`${hours}:${minutes}`);
 
-  return `${hours}:${minutes}`;
+  // return `${hours}:${minutes}`;
+  return localtime.slice(10);
 }
 export class CurrentWeather {
-  currentLocation: string = '';
+  currentLocation: string = 'Paris';
   currentTemp: string = '';
   currentTime: string = '';
 
@@ -27,7 +29,7 @@ export class CurrentWeather {
       temp_c: '',
     },
     location: {
-      localtime_epoch: 0,
+      localtime: '',
     },
   };
 
@@ -39,8 +41,12 @@ export class CurrentWeather {
     this.currentWeatherData = await fetchCurrentWeather(location);
     this.currentTemp = this.currentWeatherData.current.temp_c;
     this.currentTime = getCurrentTime(
-      this.currentWeatherData.location.localtime_epoch
+      this.currentWeatherData.location.localtime
     );
+  };
+
+  changeLocation = (value: string) => {
+    this.currentLocation = value;
   };
 }
 
