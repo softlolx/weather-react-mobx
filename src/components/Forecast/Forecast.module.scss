@@ -1,0 +1,12 @@
+.forecast {
+  width: 100%;
+  min-height: 220px;
+  display: flex;
+  box-sizing: border-box;
+  padding: 16px;
+  background: #ffffff;
+  box-shadow: 2px 5px 25px -3px rgba(180, 180, 180, 0.25);
+  border-radius: 2px 2px 20px 20px;
+  gap: 8px;
+  overflow-x: auto;
+}
