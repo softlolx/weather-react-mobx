@@ -5,9 +5,14 @@ import sunnyImg from '../../images/sunny.svg';
 export interface IMainProps {
   currentTemp: string;
   currentLocation: string;
+  currentTime: string;
 }
 
-export function Main({ currentTemp, currentLocation }: IMainProps) {
+export function Main({
+  currentTemp,
+  currentLocation,
+  currentTime,
+}: IMainProps) {
   return (
     <div className={styles.main}>
       <div className={styles.main__tempContainer}>
@@ -15,7 +20,7 @@ export function Main({ currentTemp, currentLocation }: IMainProps) {
         <img src={sunnyImg} alt="." className={styles.main__weatherImage} />
       </div>
       <div className={styles.main__infoContainer}>
-        <span className={styles.main__time}>{currentTemp}</span>
+        <span className={styles.main__time}>{currentTime}</span>
         <span className={styles.main__location}>{currentLocation}</span>
       </div>
     </div>

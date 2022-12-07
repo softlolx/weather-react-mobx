@@ -9,32 +9,32 @@ import { Footer } from './components/Footer/Footer';
 import { LocationSelect } from './components/LocationSelect/LocationSelect';
 
 import { observer } from 'mobx-react-lite';
-import { fetchCurrentWeather } from './utils/weatherApi';
-import { currentWeatherStore } from './store/current';
+import { current } from './store/current';
 
 export const App = observer(() => {
   const [isLocationPopupopened, setIsLocationPopupopened] = useState(false);
   const [location, setLocation] = useState('Minsk');
-  const [currentTemp, setCurrentTemp] = useState('--');
 
   useEffect(() => {
-    currentWeatherStore.getCurrentWeatherData();
+    getCurrentWeather(location);
   }, []);
+
+  async function getCurrentWeather(location: string) {
+    await current.getCurrentWeatherData(location);
+  }
 
   function toggleLocationPopup() {
     setIsLocationPopupopened((prev) => !prev);
   }
 
-  // async function getCurentWeather(location: string) {
-  //   const data = await fetchCurrentWeather(location);
-  //   console.log(data);
-  //   setCurrentTemp(data.current.temp_c);
-  // }
-
   return (
     <div className="App">
       <Header onSelectButtonClick={toggleLocationPopup} />
-      <Main currentTemp={currentTemp} currentLocation={location} />
+      <Main
+        currentTemp={current.currentTemp}
+        currentLocation={location}
+        currentTime={current.currentTime}
+      />
       <Details />
       <Forecast>
         <ForecastItem />
