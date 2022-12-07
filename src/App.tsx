@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import { Header } from './components/Header/Header';
 import { Main } from './components/Main/Main';
@@ -9,9 +9,14 @@ import { Footer } from './components/Footer/Footer';
 import { LocationSelect } from './components/LocationSelect/LocationSelect';
 
 export function App() {
+  const [isLocationPopupopened, setIsLocationPopupopened] = useState(false);
+  function toggleLocationPopup() {
+    setIsLocationPopupopened((prev) => !prev);
+  }
+
   return (
     <div className="App">
-      <Header />
+      <Header onSelectButtonClick={toggleLocationPopup} />
       <Main />
       <Details />
       <Forecast>
@@ -24,7 +29,9 @@ export function App() {
         <ForecastItem />
       </Forecast>
       <Footer />
-      <LocationSelect />
+      {isLocationPopupopened && (
+        <LocationSelect onCloseButtonCLick={toggleLocationPopup} />
+      )}
     </div>
   );
 }
