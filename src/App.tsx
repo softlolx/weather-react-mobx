@@ -16,6 +16,7 @@ export const App = observer(() => {
 
   useEffect(() => {
     getCurrentWeather(current.currentLocation);
+    console.log('rerender');
   }, []);
 
   async function getCurrentWeather(location: string) {

@@ -8,6 +8,7 @@ interface ICurrentWeatherData {
   };
   location: {
     localtime: string;
+    name: string;
   };
 }
 
@@ -31,6 +32,7 @@ export class CurrentWeather {
     },
     location: {
       localtime: '',
+      name: '',
     },
   };
 
@@ -46,10 +48,13 @@ export class CurrentWeather {
   getCurrentWeatherData = async (location: string) => {
     this.currentWeatherData = await fetchCurrentWeather(location);
     runInAction(() => {
-      this.currentTemp = this.currentWeatherData.current.temp_c;
+      this.currentTemp = Math.round(
+        +this.currentWeatherData.current.temp_c
+      ).toString();
       this.currentTime = getCurrentTime(
         this.currentWeatherData.location.localtime
       );
+      this.currentLocation = this.currentWeatherData.location.name;
     });
     // runInAction(() => {
     //   this.currentTemp = this.currentWeatherData.current.temp_c;
