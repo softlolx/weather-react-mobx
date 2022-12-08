@@ -1,5 +1,6 @@
 import { fetchCurrentWeather } from '../utils/weatherApi';
 import { makeAutoObservable, runInAction } from 'mobx';
+import { makePersistable } from 'mobx-persist-store';
 
 interface ICurrentWeatherData {
   current: {
@@ -35,6 +36,11 @@ export class CurrentWeather {
 
   constructor() {
     makeAutoObservable(this);
+    makePersistable(this, {
+      name: 'CurrentWeather',
+      properties: ['currentLocation'],
+      storage: window.localStorage,
+    });
   }
 
   getCurrentWeatherData = async (location: string) => {
