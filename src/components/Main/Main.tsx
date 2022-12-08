@@ -16,7 +16,9 @@ export function Main({
   return (
     <div className={styles.main}>
       <div className={styles.main__tempContainer}>
-        <span className={styles.main__temp}>{currentTemp}&#8451;</span>
+        <span className={styles.main__temp}>
+          {`${+currentTemp > 0 && '+'}${currentTemp}`}&#8451;
+        </span>
         <img src={sunnyImg} alt="." className={styles.main__weatherImage} />
       </div>
       <div className={styles.main__infoContainer}>
