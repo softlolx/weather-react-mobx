@@ -38,14 +38,16 @@ export const LocationSelect = observer(
             value={inputValue}
             onChange={handleInputValueChange}
             type="text"
+            placeholder="Enter city name here..."
             className={styles.location__popupInput}
           />
           <button
             disabled={inputValue.length < 3}
             type="submit"
             onClick={handleLocationSubmit}
+            className={styles.location__submitButton}
           >
-            CLick to change location
+            Change location!
           </button>
         </div>
       </div>

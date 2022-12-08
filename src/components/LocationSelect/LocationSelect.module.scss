@@ -45,6 +45,11 @@
     &:focus {
       outline: none;
     }
+
+    &::placeholder {
+      opacity: 0.3;
+      font-size: 0.9rem;
+    }
   }
 
   &__closeButton {
@@ -58,5 +63,19 @@
     background-image: url(../../images/sunny.svg);
     background-position: center;
     background-size: contain;
+  }
+
+  &__submitButton {
+    box-sizing: border-box;
+    padding: 8px;
+    color: aliceblue;
+    border: none;
+    background: linear-gradient(
+      130deg,
+      rgb(71, 147, 255) 0%,
+      rgb(51, 165, 189) 100%
+    );
+    box-shadow: 2px 5px 25px -3px rgb(180 180 180);
+    border-radius: 10px;
   }
 }
