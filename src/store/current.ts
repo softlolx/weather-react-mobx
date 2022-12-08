@@ -1,5 +1,5 @@
 import { fetchCurrentWeather } from '../utils/weatherApi';
-import { makeAutoObservable } from 'mobx';
+import { makeAutoObservable, runInAction } from 'mobx';
 
 interface ICurrentWeatherData {
   current: {
@@ -39,10 +39,15 @@ export class CurrentWeather {
 
   getCurrentWeatherData = async (location: string) => {
     this.currentWeatherData = await fetchCurrentWeather(location);
-    this.currentTemp = this.currentWeatherData.current.temp_c;
-    this.currentTime = getCurrentTime(
-      this.currentWeatherData.location.localtime
-    );
+    runInAction(() => {
+      this.currentTemp = this.currentWeatherData.current.temp_c;
+      this.currentTime = getCurrentTime(
+        this.currentWeatherData.location.localtime
+      );
+    });
+    // runInAction(() => {
+    //   this.currentTemp = this.currentWeatherData.current.temp_c;
+    // });
   };
 
   changeLocation = (value: string) => {
