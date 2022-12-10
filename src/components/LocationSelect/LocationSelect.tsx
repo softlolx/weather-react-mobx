@@ -38,8 +38,10 @@ export const LocationSelect = observer(
             value={inputValue}
             onChange={handleInputValueChange}
             type="text"
+            name="location"
             placeholder="Enter city name here..."
             className={styles.location__popupInput}
+            autoComplete="on"
           />
           <button
             disabled={inputValue.length < 3}
