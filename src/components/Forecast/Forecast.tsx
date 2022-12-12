@@ -31,8 +31,13 @@ const monthsArray = [
 ];
 
 function getDate(date: string) {
-  const today = future.forecast;
+  const today = new Date(future.today).getDate();
   const now = new Date(date);
+  if (now.getDate() === today) {
+    return 'Today';
+  } else if (now.getDate() - 1 === today) {
+    return 'Tomorrow';
+  }
   return `${now.getDate()} ${monthsArray[now.getMonth()]}`;
 }
 

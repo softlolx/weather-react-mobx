@@ -2,6 +2,7 @@ import { fetchFutureForecast } from '../utils/weatherApi';
 import { makeAutoObservable, runInAction } from 'mobx';
 
 interface IFutureWeatherData {
+  location: { localtime: string };
   forecast: {
     forecastday: [];
   };
@@ -13,10 +14,14 @@ export class futureWeather {
   }
 
   forecast = [];
+  today = '';
 
   futureWeatherData: IFutureWeatherData = {
     forecast: {
       forecastday: [],
+    },
+    location: {
+      localtime: '',
     },
   };
 
@@ -24,6 +29,7 @@ export class futureWeather {
     this.futureWeatherData = await fetchFutureForecast(location);
     runInAction(() => {
       this.forecast = this.futureWeatherData.forecast.forecastday;
+      this.today = this.futureWeatherData.location.localtime.slice(0, 10);
     });
   };
 }
