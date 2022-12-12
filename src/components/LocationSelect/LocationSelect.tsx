@@ -23,12 +23,17 @@ export const LocationSelect = observer(
     }
 
     return (
-      <div className={styles.location}>
-        <div className={styles.location__popup}>
-          <button
-            className={styles.location__closeButton}
-            onClick={onCloseButtonCLick}
-          ></button>
+      <div className={styles.location} onClick={() => onCloseButtonCLick()}>
+        <form
+          className={styles.location__form}
+          onClick={(e) => {
+            e.stopPropagation();
+          }}
+          onSubmit={(e) => {
+            e.preventDefault();
+            handleLocationSubmit();
+          }}
+        >
           <span className={styles.location__popupTitle}>Select location</span>
           <input
             value={inputValue}
@@ -42,12 +47,15 @@ export const LocationSelect = observer(
           <button
             disabled={inputValue.length < 3}
             type="submit"
-            onClick={handleLocationSubmit}
             className={styles.location__submitButton}
           >
             Change location!
           </button>
-        </div>
+          <button
+            className={styles.location__closeButton}
+            onClick={onCloseButtonCLick}
+          />
+        </form>
       </div>
     );
   }

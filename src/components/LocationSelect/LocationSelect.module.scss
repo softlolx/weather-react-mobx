@@ -11,7 +11,7 @@
   align-items: center;
   justify-content: center;
 
-  &__popup {
+  &__form {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -19,7 +19,6 @@
     gap: 48px;
     width: 280px;
     height: 280px;
-    background-color: red;
     border-radius: 20px;
 
     background: aliceblue;
@@ -53,14 +52,14 @@
   }
 
   &__closeButton {
-    width: 32px;
-    height: 32px;
+    width: 24px;
+    height: 24px;
     position: absolute;
     top: -24px;
     right: -24px;
     background-color: transparent;
     border: none;
-    background-image: url(../../images/sunny.svg);
+    background-image: url(../../images/close-button.svg);
     background-position: center;
     background-size: contain;
   }
@@ -77,5 +76,9 @@
     );
     box-shadow: 2px 5px 25px -3px rgb(180 180 180);
     border-radius: 10px;
+
+    &:disabled {
+      opacity: 0.3;
+    }
   }
 }
