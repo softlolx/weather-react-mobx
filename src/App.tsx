@@ -19,8 +19,13 @@ export const App = observer(() => {
     console.log('rerender');
   }, []);
 
-  async function getCurrentWeather(location: string) {
-    await current.getCurrentWeatherData(location);
+  function getCurrentWeather(location: string) {
+    Promise.all([
+      current.getCurrentWeatherData(location),
+      current.getDailyWeather(location),
+    ]);
+    // await current.getCurrentWeatherData(location);
+    // await current.getDailyWeather(location);
   }
 
   function toggleLocationPopup() {
@@ -34,6 +39,8 @@ export const App = observer(() => {
         currentTemp={current.currentTemp}
         currentLocation={current.currentLocation}
         currentTime={current.currentTime}
+        condition={current.condition}
+        icon={current.icon}
       />
       <Details />
       <Forecast>

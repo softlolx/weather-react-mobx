@@ -1,4 +1,5 @@
 import { fetchCurrentWeather } from '../utils/weatherApi';
+import { fetchDaylyWeather } from '../utils/weatherApi';
 import { makeAutoObservable, runInAction } from 'mobx';
 import { makePersistable } from 'mobx-persist-store';
 
@@ -9,10 +10,28 @@ interface ICurrentWeatherData {
     humidity: string;
     wind_dir: string;
     wind_kph: string;
+    condition: {
+      icon: string;
+      text: string;
+    };
   };
   location: {
     localtime: string;
     name: string;
+  };
+}
+
+interface IDailyWeatherData {
+  forecast: {
+    forecastday: [
+      {
+        day: {
+          condition: {
+            text: string;
+          };
+        };
+      }
+    ];
   };
 }
 
@@ -33,7 +52,10 @@ export class CurrentWeather {
   feelslikeTemp = '';
   humidity = '';
   windDir = '';
-  windSpeed = ';';
+  windSpeed = '';
+  condition = '';
+  icon = '';
+  precipCondition = '';
 
   currentWeatherData: ICurrentWeatherData = {
     current: {
@@ -42,10 +64,26 @@ export class CurrentWeather {
       humidity: '',
       wind_dir: '',
       wind_kph: '',
+      condition: {
+        icon: '',
+        text: '',
+      },
     },
     location: {
       localtime: '',
       name: '',
+    },
+  };
+
+  dailyWeatherData = {
+    forecast: {
+      forecastday: [
+        {
+          day: {
+            condition: { text: '' },
+          },
+        },
+      ],
     },
   };
 
@@ -76,6 +114,16 @@ export class CurrentWeather {
         this.currentWeatherData.location.localtime
       );
       this.currentLocation = this.currentWeatherData.location.name;
+      this.condition = this.currentWeatherData.current.condition.text;
+      this.icon = this.currentWeatherData.current.condition.icon;
+    });
+  };
+
+  getDailyWeather = async (location: string) => {
+    this.dailyWeatherData = await fetchDaylyWeather(location);
+    runInAction(() => {
+      this.precipCondition =
+        this.dailyWeatherData.forecast.forecastday[0].day.condition.text;
     });
   };
 

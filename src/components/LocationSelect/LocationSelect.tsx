@@ -23,6 +23,7 @@ export const LocationSelect = observer(
     function handleLocationSubmit() {
       current.changeLocation(inputValue);
       current.getCurrentWeatherData(inputValue);
+      current.getDailyWeather(inputValue);
       onCloseButtonCLick();
     }
 

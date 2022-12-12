@@ -38,7 +38,7 @@ export const Details = observer((props: IDetailsProps) => {
       <div className={styles.details__infoContainer}>
         <img src={precipitationImg} alt="." className={styles.details__icon} />
         <span className={styles.details__title}>Precipitation</span>
-        <span className={styles.details__info}>20° - ощущается как 17°</span>
+        <span className={styles.details__info}>{current.precipCondition}</span>
       </div>
     </div>
   );

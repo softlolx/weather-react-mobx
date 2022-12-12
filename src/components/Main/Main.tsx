@@ -6,12 +6,16 @@ export interface IMainProps {
   currentTemp: string;
   currentLocation: string;
   currentTime: string;
+  condition: string;
+  icon: string;
 }
 
 export function Main({
   currentTemp,
   currentLocation,
   currentTime,
+  condition,
+  icon,
 }: IMainProps) {
   return (
     <div className={styles.main}>
@@ -19,11 +23,13 @@ export function Main({
         <span className={styles.main__temp}>
           {`${+currentTemp > 0 ? '+' : ''}${currentTemp}`}&#8451;
         </span>
-        <img src={sunnyImg} alt="." className={styles.main__weatherImage} />
+        <img src={icon} alt="." className={styles.main__weatherImage} />
       </div>
       <div className={styles.main__infoContainer}>
         <span className={styles.main__time}>{currentTime}</span>
-        <span className={styles.main__location}>{currentLocation}</span>
+        <span className={styles.main__location}>
+          {currentLocation} - {condition}
+        </span>
       </div>
     </div>
   );
