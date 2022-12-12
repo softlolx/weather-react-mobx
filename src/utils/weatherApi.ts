@@ -23,3 +23,16 @@ export async function fetchCurrentWeather(location: string) {
     console.log(error);
   }
 }
+
+export async function fetchFutureForecast(location: string) {
+  try {
+    const { data } = await axios.get(
+      `${BASE_URL}/forecast.json?key=${apikey}&q=${location}&days=10`
+    );
+    console.log(data);
+
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+}

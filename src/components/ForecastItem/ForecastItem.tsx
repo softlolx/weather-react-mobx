@@ -1,18 +1,33 @@
 import styles from './ForecastItem.module.scss';
 import * as React from 'react';
-import sunnyImg from '../../images/sunny.svg';
 
-export interface IForecastItemProps {}
+export interface IForecastItemProps {
+  maxTemp: string;
+  minTemp: string;
+  day: string;
+  condition: string;
+  icon: string;
+}
 
-export function ForecastItem(props: IForecastItemProps) {
+export function ForecastItem({
+  maxTemp,
+  minTemp,
+  day,
+  condition,
+  icon,
+}: IForecastItemProps) {
   return (
     <div className={styles.forecastItem}>
-      <h3 className={styles.forecastItem__weekday}>Today</h3>
-      <span className={styles.forecastItem__date}>28 sep</span>
-      <img src={sunnyImg} alt="." className={styles.forecastItem__icon} />
-      <span className={styles.forecastItem__temp}>20°</span>
-      <span className={styles.forecastItem__feelsLike}>15°</span>
-      <span className={styles.forecastItem__subtitle}>Sunny</span>
+      <h3 className={styles.forecastItem__weekday}>{day}</h3>
+      {/* <span className={styles.forecastItem__date}></span> */}
+      <img src={icon} alt="." className={styles.forecastItem__icon} />
+      <span className={styles.forecastItem__temp}>
+        {`${+maxTemp > 0 ? '+' : ''}${maxTemp}`}&#8451;
+      </span>
+      <span className={styles.forecastItem__feelsLike}>
+        {`${+minTemp > 0 ? '+' : ''}${minTemp}`}&#8451;
+      </span>
+      <span className={styles.forecastItem__subtitle}>{condition}</span>
     </div>
   );
 }

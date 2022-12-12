@@ -4,12 +4,12 @@ import { Header } from './components/Header/Header';
 import { Main } from './components/Main/Main';
 import { Details } from './components/Details/Details';
 import { Forecast } from './components/Forecast/Forecast';
-import { ForecastItem } from './components/ForecastItem/ForecastItem';
 import { Footer } from './components/Footer/Footer';
 import { LocationSelect } from './components/LocationSelect/LocationSelect';
 
 import { observer } from 'mobx-react-lite';
 import { current } from './store/current';
+import { future } from './store/future';
 
 export const App = observer(() => {
   const [isLocationPopupopened, setIsLocationPopupopened] = useState(false);
@@ -20,7 +20,10 @@ export const App = observer(() => {
   }, []);
 
   function getCurrentWeather(location: string) {
-    Promise.all([current.getCurrentWeatherData(location)]);
+    Promise.all([
+      current.getCurrentWeatherData(location),
+      future.getTenDayForecast(location),
+    ]);
   }
 
   function toggleLocationPopup() {
@@ -32,11 +35,7 @@ export const App = observer(() => {
       <Header onSelectButtonClick={toggleLocationPopup} />
       <Main />
       <Details />
-      <Forecast>
-        <ForecastItem />
-        <ForecastItem />
-        <ForecastItem />
-      </Forecast>
+      <Forecast />
       <Footer />
       {isLocationPopupopened && (
         <LocationSelect onCloseButtonCLick={toggleLocationPopup} />
