@@ -17,6 +17,12 @@
     grid-template-columns: 40px 1fr 2fr;
     align-items: center;
     gap: 12px;
+
+    // @media screen and (min-width: 550px) {
+    //   & {
+    //     grid-template-columns: 40px 1fr 1fr;
+    //   }
+    // }
   }
 
   &__icon {
