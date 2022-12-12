@@ -69,7 +69,9 @@ export class CurrentWeather {
       ).toString();
       this.humidity = this.currentWeatherData.current.humidity.toString();
       this.windDir = this.currentWeatherData.current.wind_dir;
-      this.windSpeed = this.currentWeatherData.current.wind_kph.toString();
+      this.windSpeed = Math.round(
+        +this.currentWeatherData.current.wind_kph
+      ).toString();
       this.currentTime = getCurrentTime(
         this.currentWeatherData.location.localtime
       );

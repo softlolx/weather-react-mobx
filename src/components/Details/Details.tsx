@@ -26,12 +26,14 @@ export const Details = observer((props: IDetailsProps) => {
       <div className={styles.details__infoContainer}>
         <img src={humidityImg} alt="." className={styles.details__icon} />
         <span className={styles.details__title}>Humidity</span>
-        <span className={styles.details__info}>20° - ощущается как 17°</span>
+        <span className={styles.details__info}>{current.humidity}%</span>
       </div>
       <div className={styles.details__infoContainer}>
         <img src={windImg} alt="." className={styles.details__icon} />
         <span className={styles.details__title}>Wind</span>
-        <span className={styles.details__info}>20° - ощущается как 17°</span>
+        <span className={styles.details__info}>
+          {current.windSpeed}km/h {current.windDir}
+        </span>
       </div>
       <div className={styles.details__infoContainer}>
         <img src={precipitationImg} alt="." className={styles.details__icon} />
