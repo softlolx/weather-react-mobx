@@ -16,14 +16,9 @@ export const LocationSelect = observer(
       setInputValue((e.target as HTMLInputElement).value);
     }
 
-    // function handleCloseButtonClick(params:type) {
-
-    // }
-
     function handleLocationSubmit() {
       current.changeLocation(inputValue);
       current.getCurrentWeatherData(inputValue);
-      current.getDailyWeather(inputValue);
       onCloseButtonCLick();
     }
 

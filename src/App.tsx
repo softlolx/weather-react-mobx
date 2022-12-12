@@ -20,12 +20,7 @@ export const App = observer(() => {
   }, []);
 
   function getCurrentWeather(location: string) {
-    Promise.all([
-      current.getCurrentWeatherData(location),
-      current.getDailyWeather(location),
-    ]);
-    // await current.getCurrentWeatherData(location);
-    // await current.getDailyWeather(location);
+    Promise.all([current.getCurrentWeatherData(location)]);
   }
 
   function toggleLocationPopup() {

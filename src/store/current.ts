@@ -1,5 +1,5 @@
 import { fetchCurrentWeather } from '../utils/weatherApi';
-import { fetchDaylyWeather } from '../utils/weatherApi';
+// import { fetchDaylyWeather } from '../utils/weatherApi';
 import { makeAutoObservable, runInAction } from 'mobx';
 import { makePersistable } from 'mobx-persist-store';
 
@@ -19,9 +19,6 @@ interface ICurrentWeatherData {
     localtime: string;
     name: string;
   };
-}
-
-interface IDailyWeatherData {
   forecast: {
     forecastday: [
       {
@@ -36,12 +33,6 @@ interface IDailyWeatherData {
 }
 
 function getCurrentTime(localtime: string) {
-  // const date = new Date(timestamp * 1000);
-  // let hours = date.getHours();
-  // let minutes = date.getMinutes();
-  // console.log(`${hours}:${minutes}`);
-
-  // return `${hours}:${minutes}`;
   return localtime.slice(10);
 }
 
@@ -73,9 +64,6 @@ export class CurrentWeather {
       localtime: '',
       name: '',
     },
-  };
-
-  dailyWeatherData: IDailyWeatherData = {
     forecast: {
       forecastday: [
         {
@@ -116,14 +104,8 @@ export class CurrentWeather {
       this.currentLocation = this.currentWeatherData.location.name;
       this.condition = this.currentWeatherData.current.condition.text;
       this.icon = this.currentWeatherData.current.condition.icon;
-    });
-  };
-
-  getDailyWeather = async (location: string) => {
-    this.dailyWeatherData = await fetchDaylyWeather(location);
-    runInAction(() => {
       this.precipCondition =
-        this.dailyWeatherData.forecast.forecastday[0].day.condition.text;
+        this.currentWeatherData.forecast.forecastday[0].day.condition.text;
     });
   };
 
