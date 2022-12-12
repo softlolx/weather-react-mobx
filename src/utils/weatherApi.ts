@@ -1,6 +1,9 @@
 import axios, { AxiosRequestConfig } from 'axios';
 
-const BASE_URL: string = 'http://api.weatherapi.com/v1';
+const BASE_URL: string =
+  location.protocol === 'http:'
+    ? 'http://api.weatherapi.com/v1'
+    : 'https://api.weatherapi.com/v1';
 const apikey: string = 'c1f51487954341f28de192247220712';
 
 export interface ICurrentResponse {
