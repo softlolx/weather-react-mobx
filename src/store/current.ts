@@ -5,6 +5,10 @@ import { makePersistable } from 'mobx-persist-store';
 interface ICurrentWeatherData {
   current: {
     temp_c: string;
+    feelslike_c: string;
+    humidity: string;
+    wind_dir: string;
+    wind_kph: string;
   };
   location: {
     localtime: string;
@@ -21,14 +25,23 @@ function getCurrentTime(localtime: string) {
   // return `${hours}:${minutes}`;
   return localtime.slice(10);
 }
+
 export class CurrentWeather {
-  currentLocation: string = 'Paris';
-  currentTemp: string = '';
-  currentTime: string = '';
+  currentLocation = 'Paris';
+  currentTemp = '';
+  currentTime = '';
+  feelslikeTemp = '';
+  humidity = '';
+  windDir = '';
+  windSpeed = ';';
 
   currentWeatherData: ICurrentWeatherData = {
     current: {
       temp_c: '',
+      feelslike_c: '',
+      humidity: '',
+      wind_dir: '',
+      wind_kph: '',
     },
     location: {
       localtime: '',
@@ -51,14 +64,17 @@ export class CurrentWeather {
       this.currentTemp = Math.round(
         +this.currentWeatherData.current.temp_c
       ).toString();
+      this.feelslikeTemp = Math.round(
+        +this.currentWeatherData.current.feelslike_c
+      ).toString();
+      this.humidity = this.currentWeatherData.current.humidity.toString();
+      this.windDir = this.currentWeatherData.current.wind_dir;
+      this.windSpeed = this.currentWeatherData.current.wind_kph.toString();
       this.currentTime = getCurrentTime(
         this.currentWeatherData.location.localtime
       );
       this.currentLocation = this.currentWeatherData.location.name;
     });
-    // runInAction(() => {
-    //   this.currentTemp = this.currentWeatherData.current.temp_c;
-    // });
   };
 
   changeLocation = (value: string) => {
