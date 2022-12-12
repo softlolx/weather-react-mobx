@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/react-dranik/static/css/main.95375b7d.css",
-    "main.js": "/react-dranik/static/js/main.e4e359ea.js",
-    "static/media/precipitation.svg": "/react-dranik/static/media/precipitation.fbc7300a23049c8dc567a957d6e9a52e.svg",
-    "static/media/temp.svg": "/react-dranik/static/media/temp.0afb87419db6d1029df212fc7026647a.svg",
-    "static/media/logo_main.svg": "/react-dranik/static/media/logo_main.bba3451d0e8ffa73ac93.svg",
-    "static/media/sunny.svg": "/react-dranik/static/media/sunny.54833a1cd68ce09ba87a9392aa31b399.svg",
-    "static/media/wind.svg": "/react-dranik/static/media/wind.d4ed59afb4ed98220175e1d2acf48371.svg",
-    "static/media/humidity.svg": "/react-dranik/static/media/humidity.b61f40680041707e619bc3db668eea86.svg",
-    "index.html": "/react-dranik/index.html",
-    "main.95375b7d.css.map": "/react-dranik/static/css/main.95375b7d.css.map",
-    "main.e4e359ea.js.map": "/react-dranik/static/js/main.e4e359ea.js.map"
+    "main.css": "/weather-react-mobx/static/css/main.1eb9db9f.css",
+    "main.js": "/weather-react-mobx/static/js/main.906a02ba.js",
+    "static/media/precipitation.svg": "/weather-react-mobx/static/media/precipitation.fbc7300a23049c8dc567a957d6e9a52e.svg",
+    "static/media/temp.svg": "/weather-react-mobx/static/media/temp.0afb87419db6d1029df212fc7026647a.svg",
+    "static/media/logo_main.svg": "/weather-react-mobx/static/media/logo_main.bba3451d0e8ffa73ac93.svg",
+    "static/media/sunny.svg": "/weather-react-mobx/static/media/sunny.54833a1cd68ce09ba87a9392aa31b399.svg",
+    "static/media/wind.svg": "/weather-react-mobx/static/media/wind.d4ed59afb4ed98220175e1d2acf48371.svg",
+    "static/media/humidity.svg": "/weather-react-mobx/static/media/humidity.b61f40680041707e619bc3db668eea86.svg",
+    "index.html": "/weather-react-mobx/index.html",
+    "main.1eb9db9f.css.map": "/weather-react-mobx/static/css/main.1eb9db9f.css.map",
+    "main.906a02ba.js.map": "/weather-react-mobx/static/js/main.906a02ba.js.map"
   },
   "entrypoints": [
-    "static/css/main.95375b7d.css",
-    "static/js/main.e4e359ea.js"
+    "static/css/main.1eb9db9f.css",
+    "static/js/main.906a02ba.js"
   ]
 }
