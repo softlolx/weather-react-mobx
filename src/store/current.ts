@@ -75,7 +75,7 @@ export class CurrentWeather {
     },
   };
 
-  dailyWeatherData = {
+  dailyWeatherData: IDailyWeatherData = {
     forecast: {
       forecastday: [
         {
