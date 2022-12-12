@@ -30,13 +30,7 @@ export const App = observer(() => {
   return (
     <div className="App">
       <Header onSelectButtonClick={toggleLocationPopup} />
-      <Main
-        currentTemp={current.currentTemp}
-        currentLocation={current.currentLocation}
-        currentTime={current.currentTime}
-        condition={current.condition}
-        icon={current.icon}
-      />
+      <Main />
       <Details />
       <Forecast>
         <ForecastItem />
