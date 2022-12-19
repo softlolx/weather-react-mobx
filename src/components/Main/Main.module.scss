@@ -9,7 +9,7 @@
 
   background: #ffffff;
   box-shadow: 2px 5px 25px -3px rgba(180, 180, 180, 0.25);
-  border-radius: 20px 20px 2px 2px;
+  border-radius: 20px;
 
   &__tempContainer {
     width: 100%;
@@ -43,9 +43,13 @@
 
   &__time {
     font-size: 1.5rem;
+    font-weight: 600;
+    color: rgb(42, 38, 38);
   }
 
   &__location {
     font-size: 1.5rem;
+    font-weight: 600;
+    color: rgb(42, 38, 38);
   }
 }

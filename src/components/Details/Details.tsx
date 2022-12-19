@@ -18,7 +18,7 @@ export const Details = observer((props: IDetailsProps) => {
         <span className={styles.details__title}>Temp</span>
         <span className={styles.details__info}>
           {`${+current.currentTemp > 0 ? '+' : ''}${current.currentTemp}`}
-          &#8451; - feels like{' '}
+          &#8451; feels like{' '}
           {`${+current.feelslikeTemp > 0 ? '+' : ''}${current.feelslikeTemp}`}
           &#8451;
         </span>

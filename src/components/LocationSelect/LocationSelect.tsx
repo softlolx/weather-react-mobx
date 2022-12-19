@@ -2,6 +2,7 @@ import * as React from 'react';
 import { useState } from 'react';
 import styles from './LocationSelect.module.scss';
 import { current } from '../../store/current';
+import { future } from '../../store/future';
 import { observer } from 'mobx-react-lite';
 
 export interface ILocationSelectProps {
@@ -19,6 +20,7 @@ export const LocationSelect = observer(
     function handleLocationSubmit() {
       current.changeLocation(inputValue);
       current.getCurrentWeatherData(inputValue);
+      future.getTenDayForecast(inputValue);
       onCloseButtonCLick();
     }
 

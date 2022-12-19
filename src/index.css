@@ -12,7 +12,12 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  background-color: #f1f1f1;
+  background: rgb(71, 234, 255);
+  background: linear-gradient(
+    130deg,
+    rgba(71, 234, 255, 1) 0%,
+    rgba(51, 189, 189, 0.6685267857142857) 100%
+  );
   margin: 0 auto;
 }
 
