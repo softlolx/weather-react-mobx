@@ -1,5 +1,4 @@
 import { fetchCurrentWeather } from '../utils/weatherApi';
-// import { fetchDaylyWeather } from '../utils/weatherApi';
 import { makeAutoObservable, runInAction } from 'mobx';
 import { makePersistable } from 'mobx-persist-store';
 
