@@ -16,6 +16,7 @@ interface ICurrentWeatherData {
   };
   location: {
     localtime: string;
+    localtime_epoch: number;
     name: string;
   };
   forecast: {
@@ -46,6 +47,7 @@ export class CurrentWeather {
   condition = '';
   icon = '';
   precipCondition = '';
+  localtimestamp = 0;
 
   currentWeatherData: ICurrentWeatherData = {
     current: {
@@ -62,6 +64,7 @@ export class CurrentWeather {
     location: {
       localtime: '',
       name: '',
+      localtime_epoch: 0,
     },
     forecast: {
       forecastday: [
@@ -105,6 +108,7 @@ export class CurrentWeather {
       this.icon = this.currentWeatherData.current.condition.icon;
       this.precipCondition =
         this.currentWeatherData.forecast.forecastday[0].day.condition.text;
+      this.localtimestamp = this.currentWeatherData.location.localtime_epoch;
     });
   };
 
