@@ -9,14 +9,9 @@ import { current } from '../../store/current';
 export interface IHourlyProps {}
 
 export const Hourly = observer((props: IHourlyProps) => {
-  function getHours() {
-    //@ts-ignore
-    const hours = future.forecast[0]?.hour;
-    const now = new Date(current.localtimestamp * 1000).getHours();
-    return hours?.slice(now);
-  }
+  // @ts-ignore
+  const hours = future.forecast[0]?.hour.slice(parseInt(current.currentTime));
 
-  const hours = getHours();
   return (
     <div className={styles.hourly}>
       {
