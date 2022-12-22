@@ -15,21 +15,23 @@
     width: 100%;
     display: flex;
     align-items: center;
+    // gap: 24px;
     justify-content: space-between;
   }
 
   &__temp {
     margin: 0;
     padding: 0;
-    font-size: 5rem;
+    font-size: 4rem;
     font-weight: 600;
     line-height: 1;
     color: #4793ff;
   }
 
   &__weatherImage {
-    width: 120px;
-    height: 120px;
+    align-self: flex-end;
+    width: 64px;
+    height: 64px;
     object-position: center;
     object-fit: fill;
   }
