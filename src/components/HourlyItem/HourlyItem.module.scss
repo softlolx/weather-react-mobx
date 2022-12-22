@@ -1,0 +1,24 @@
+.hourlyItem {
+  width: 64px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 8px;
+  background: rgba(71, 147, 255, 0.2);
+  border-radius: 10px;
+}
+
+.img {
+  width: 36px;
+  height: 36px;
+}
+
+.time {
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+.temp {
+  font-size: 0.8rem;
+  font-weight: 600;
+}

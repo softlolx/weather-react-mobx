@@ -6,6 +6,7 @@ import { Details } from './components/Details/Details';
 import { Forecast } from './components/Forecast/Forecast';
 import { Footer } from './components/Footer/Footer';
 import { LocationSelect } from './components/LocationSelect/LocationSelect';
+import { Hourly } from './components/Hourly/Hourly';
 
 import { observer } from 'mobx-react-lite';
 import { current } from './store/current';
@@ -33,6 +34,7 @@ export const App = observer(() => {
     <div className="App">
       <Header onSelectButtonClick={toggleLocationPopup} />
       <Main />
+      <Hourly />
       <Details />
       <Forecast />
       <Footer />
