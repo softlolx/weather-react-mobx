@@ -1,6 +1,7 @@
 .forecastItem {
   width: 120px;
-  // min-height: min-content;
+  min-height: 100%;
+  height: max-content;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -9,7 +10,6 @@
   background: rgba(71, 147, 255, 0.2);
   border-radius: 10px;
   gap: 6px;
-  overflow: visible;
 
   &__weekday {
     margin: 0;
@@ -41,6 +41,7 @@
   }
 
   &__subtitle {
+    display: block;
     flex-grow: 1;
     font-size: 1rem;
     font-weight: 400;
