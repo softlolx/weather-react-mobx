@@ -9,7 +9,7 @@ import { current } from '../../store/current';
 export interface IHourlyProps {}
 
 export const Hourly = observer((props: IHourlyProps) => {
-  // @ts-ignore
+  //@ts-ignore
   const hours = future.forecast[0]?.hour.slice(parseInt(current.currentTime));
 
   return (
